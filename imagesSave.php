@@ -4,7 +4,7 @@ $featuredArticles = $_POST["featuredArticles"];
 $latestArticles = $_POST["latestArticles"];
 
 for ($i = 1; $i <= $featuredArticles; $i++) {
-        featuredArticle . $i . "'><br><br>";
+        featuredArticle . $i;
 }
 
 
