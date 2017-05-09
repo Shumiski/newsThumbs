@@ -35,8 +35,9 @@ $imgUrl = "https://insights.hpe.com/" . $getImgUrl;
 // import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;
 
-    
-$img = Image::make("https://insights.hpe.com/content/hpe-nxt/en/articles/2017/05/thanks-to-iot-predictive-maintenance-gets-an-extreme-makeover/_jcr_content/article-image.transform/1043x496-crop/image.jpeg");
+
+function resizeFeatured($news, $url, $name){
+$img = Image::make(theImage($url));
 
 // now you are able to resize the instance
 $img->resize(null, 305, function ($constraint) {
@@ -50,8 +51,12 @@ $img->crop(600, 305);
 $img->insert('images/mask.png');
 
 // finally we save the image as a new file
-$img->save('images/saved/test.jpg');
+$img->save('images/saved/' . $news . '_' . $name . '.jpg');
     
+}
+
+
+
 
 
 ?>
@@ -82,9 +87,11 @@ $img->save('images/saved/test.jpg');
   
     <?php 
     
-    //for ($i = 1; $i <= $featuredArticles; $i++) {
-    //    resizeImages($featuredArticle[$i], $i);    
-    //}
+    for ($i = 1; $i <= $featuredArticles; $i++) {
+        resizeFeatured($newsletterNumber, $featuredArticle[$i], $i);    
+    }
+
+
     
     ?>
     
