@@ -3,6 +3,7 @@
 $featuredArticles = $_POST["featuredArticles"];
 $latestArticles = $_POST["latestArticles"];
 
+
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +33,13 @@ $latestArticles = $_POST["latestArticles"];
 <form action="imagesSave.php" method="post">
 <input type="hidden" name="featuredArticles" value="<?php echo $featuredArticles;?>" />
 <input type="hidden" name="latestArticles" value="<?php echo $latestArticles;?>" />
+
    
     Newsletter Number: <br><br>
     <input type="text" name="newsletterNumber"><br><br><br>
+    
+    Newsletter Report: <br><br>
+    <input type="text" name="newsletterReport"><br><br><br>
   
     <?php
     

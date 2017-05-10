@@ -3,6 +3,7 @@
 $featuredArticles = $_POST["featuredArticles"];
 $latestArticles = $_POST["latestArticles"];
 $newsletterNumber = $_POST["newsletterNumber"];
+$newsletterReport = $_POST["newsletterReport"];
 
 // Dependendo do número de articles, pega variáveis
 for ($i = 1; $i <= $featuredArticles; $i++) {
@@ -44,15 +45,19 @@ for ($i = 1; $i <= $latestArticles; $i++) {
     <input type="hidden" name="featuredArticles" value="<?php echo $featuredArticles;?>" />
     <input type="hidden" name="latestArticles" value="<?php echo $latestArticles;?>" />
     <input type="hidden" name="newsletterNumber" value="<?php echo $newsletterNumber;?>" />
+    <input type="hidden" name="newsletterReport" value="<?php echo $newsletterReport;?>" />
    
     Subject line: <br><br>
     <input type="text" name="newsletterSubject"><br><br><br>
     
     Date: <br><br>
     <input type="text" name="newsletterDate"><br><br><br>
-    
-    Report: <br><br>
-    <input type="text" name="newsletterReport"><br><br><br>
+   
+    Images path: <br><br>
+    <select name="imagesPath">
+    <option value="local">Local</option>
+    <option value="et">ExactTarget</option>
+    </select>
    
    
     <?php 

@@ -3,6 +3,8 @@
 $featuredArticles = $_POST["featuredArticles"];
 $latestArticles = $_POST["latestArticles"];
 $newsletterNumber = $_POST["newsletterNumber"];
+$newsletterReport = $_POST["newsletterReport"];
+
 
 // Dependendo do número de articles, pega variáveis
 for ($i = 1; $i <= $featuredArticles; $i++) {
@@ -101,6 +103,7 @@ $img->save('images/saved/' . $news . '_latest_' . $name . '.jpg');
     <input type="hidden" name="featuredArticles" value="<?php echo $featuredArticles;?>" />
     <input type="hidden" name="latestArticles" value="<?php echo $latestArticles;?>" />
     <input type="hidden" name="newsletterNumber" value="<?php echo $newsletterNumber;?>" />
+    <input type="hidden" name="newsletterReport" value="<?php echo $newsletterReport;?>" />
 
     <?php 
     

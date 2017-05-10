@@ -6,11 +6,14 @@ $newsletterNumber = $_POST["newsletterNumber"];
 $newsletterSubject = $_POST["newsletterSubject"];
 $newsletterDate = $_POST["newsletterDate"];
 $newsletterReport = $_POST["newsletterReport"];
+$imagesPathChoice = $_POST["imagesPath"];
 
 
-//$imagesPath = "http://image.emailinfo.mail.hpe.com/lib/fe8f15747462017a7d/m/1/";
+if ($imagesPathChoice == "et"){
+$imagesPath = "http://image.emailinfo.mail.hpe.com/lib/fe8f15747462017a7d/m/1/";
+} else {
 $imagesPath = "images/saved/";
-
+}
 
 
 // Dependendo do número de articles, pega variáveis
@@ -371,3 +374,171 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
     }
 ?>
 
+
+<!-- START ONE COLUMN ARTICLE -->
+    <tr>
+      <td class="one-column-article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <!--[if (gte mso 9)|(IE)]>
+            <table width="600" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
+            <tr>
+            <td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+            <![endif]-->
+            <table class="outer" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family: Arial, sans-serif;Margin:0 auto;width:100%;max-width:600px;background: #ffffff;" >
+              <tr>
+                <td class="one-column-article" style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:0px;" >
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
+                    <tr>
+                      <td class="contents" style="width:100%;padding-top:20px;padding-bottom:0px;padding-right:20px;padding-left:20px;text-align:left;" >
+                        <h2 style="font-family: Arial, sans-serif;Margin: 0;font-size: 24px;color: #000000;border-bottom-width: 3px;border-bottom-style: solid;border-bottom-color: #000000;line-height: 2.5;">Articles you can’t miss:</h2>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END ONE COLUMN ARTICLE -->
+
+<!-- START TWO COLUMN, IMAGE LEFT/TEXT RIGHT -->
+    <tr>
+      <td class="one-column-article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <!--[if (gte mso 9)|(IE)]>
+            <table width="600" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
+            <tr>
+            <td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+            <![endif]-->
+            <table class="outer" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family: Arial, sans-serif;Margin:0 auto;width:100%;max-width:600px;background: #ffffff;" >
+              <tr>
+                <td class="one-column-article" style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:0px;" >
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
+                    <tr>
+                      <td class="padding-top-10" style="padding-top: 0px;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family: Arial, sans-serif;" >
+                        <tr>
+                        <td width="100%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                        <![endif]-->
+                        <div class="column" style="width:100%;display:inline-block;vertical-align:top;" >
+                          <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family: Arial, sans-serif;" >
+                          
+                          
+
+<?php
+for ($i = 1; $i <= $latestArticles; $i++) {
+?>
+
+
+<!-- Latest articles -->
+                            <tr>
+                              <td class="padding-toprightleft-2x0" style="padding-top: 15px;padding-bottom:0;padding-right:20px;padding-left: 20px;" >
+                                <table class="contents" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family: Arial, sans-serif;width:100%;font-size:14px;text-align:left;" >
+                                  <tr>
+                                    <td width="110" class="padding-right-20" valign="top" style="padding-top:0px;padding-bottom:<?php if ($i < $latestArticles){ ?>15px<?php } else { ?>40px<?php } ?>;padding-right:20px;padding-left:0px;<?php if ($i < $latestArticles){ ?>border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CDD0D1;<?php } ?>" >
+                                      <a href="<?php echo $latestArticle[$i]; ?>" style="border-width:0;width:100%;height:auto;max-width:260px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_latest_" . $i . ".jpg";?>" width="110" alt="<?php echo theData($latestArticle[$i], "headline"); ?>" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
+                                    </td>
+                                    <td valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;<?php if ($i < $latestArticles){ ?>border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CDD0D1;<?php } ?>" >
+                                      <a href="<?php echo $latestArticle[$i]; ?>" style="text-decoration: none;">
+                                        <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php echo theData($latestArticle[$i], "category"); ?></span>
+                                        <h2 style="font-family: Arial, sans-serif;font-size: 18px;line-height: 1.1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 6px;margin-top: 6px;"><?php echo theData($latestArticle[$i], "headline"); ?></h2>
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <!-- Latest articles -->
+<?php
+}
+?>
+
+
+ </table>
+                        </div>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td><td width="100%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                        <![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END TWO COLUMN, IMAGE LEFT/TEXT RIGHT -->
+    <!-- START SPACER -->
+    <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td height="40" width="100%" style="font-size:40px;line-height:40px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END SPACER -->
+    <!-- START LOGO -->
+    <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td width="100%" style="padding-top:0;padding-bottom:30px;padding-right:0;padding-left:0;" >
+                  <a href="https://insights.hpe.com/?jumpid=em_fn8ktqmji1_AID-510204404" style="display: block;width: 100%;max-width: 217px;text-align: center;margin: auto;"><img src="http://image.emailinfo.mail.hpe.com/lib/fe8f15747462017a7d/m/1/logoHPE.png" alt="Brought to you by HPE" style="display: block;width: 100%;max-width: 217px;"></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END LOGO -->
+    <!-- START FOOTER -->
+    <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;padding-bottom: 60px;padding-left: 20px;padding-right: 20px;" >
+              <tr>
+                <td>
+                  <p style="color: #888888;Margin: 0; margin: 0;Margin-bottom: 10px;margin-bottom: 10px;text-align: center;font-size: 12px;font-family:Arial, sans-serif;">This email was sent to: <span style="color: #888888;">%%emailaddr%%</span></p>
+                  <p style="color: #888888;Margin: 0; margin: 0;Margin-bottom: 10px;margin-bottom: 10px;text-align: center;font-size: 12px;font-family:Arial, sans-serif;">This email was sent by: Hewlett Packard Enterprise 3000 Hanover Street Palo Alto, CA 94304 USA </p>
+                  <p style="color: #888888;Margin: 0; margin: 0;Margin-bottom: 20px;margin-bottom: 20px;text-align: center;font-size: 12px;font-family:Arial, sans-serif;">We respect your right to privacy - <a href="https://www.hpe.com/us/en/legal/privacy.html" style="color: #888888;">view our policy </a></p>
+                  <p style="color: #000000;Margin: 0; margin: 0;Margin-bottom: 10px;margin-bottom: 10px;text-align: center;font-size: 12px;font-family:Arial, sans-serif;"><a href="https://h41360.www4.hpe.com/unsubscribe-ent-nxt.php?country=US&language=US&e=%%=v(@encrypted_email)=%%&pid=%%jobid%%&dimid=EMID_%%_subscriberkey%%" style="color: #000000;">Unsubscribe</a></p>
+                  
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    <!-- END FOOTER -->
+  </table>
+</body>
+</html>
