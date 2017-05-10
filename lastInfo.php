@@ -14,63 +14,6 @@ for ($i = 1; $i <= $latestArticles; $i++) {
 }
 
 
-// Starting Parser
-require "vendor/autoload.php";
-use PHPHtmlParser\Dom;
-
-
-function theImage($url){
-$dom = new Dom;
-$dom->load($url);
-
-$img = $dom->find('.marquee-img');
-$getImgUrl = $img->getAttribute('src');
-$imgUrl = "https://insights.hpe.com/" . $getImgUrl;
-    
-    return $imgUrl;
-}
-
-
-//Starting Intervention
-// import the Intervention Image Manager Class
-use Intervention\Image\ImageManagerStatic as Image;
-
-
-function resizeFeatured($news, $url, $name){
-$img = Image::make(theImage($url));
-
-// now you are able to resize the instance
-$img->resize(null, 305, function ($constraint) {
-    $constraint->aspectRatio();
-});
-
-//crop
-$img->crop(600, 305);
-
-// paste another image
-$img->insert('images/mask.png');
-
-// finally we save the image as a new file
-$img->save('images/saved/' . $news . '_featured_' . $name . '.jpg');
-    
-}
-
-
-function resizeLatest($news, $url, $name){
-$img = Image::make(theImage($url));
-
-// now you are able to resize the instance
-$img->resize(null, 73, function ($constraint) {
-    $constraint->aspectRatio();
-});
-
-//crop
-$img->crop(100, 73);
-
-// finally we save the image as a new file
-$img->save('images/saved/' . $news . '_latest_' . $name . '.jpg');
-    
-}
 
 ?>
 
@@ -97,27 +40,35 @@ $img->save('images/saved/' . $news . '_latest_' . $name . '.jpg');
     
 </head>
 <body>
-  <form action="lastInfo.php" method="post">
+  <form action="newsletter.php" method="post">
     <input type="hidden" name="featuredArticles" value="<?php echo $featuredArticles;?>" />
     <input type="hidden" name="latestArticles" value="<?php echo $latestArticles;?>" />
     <input type="hidden" name="newsletterNumber" value="<?php echo $newsletterNumber;?>" />
-
+   
+    Subject line: <br><br>
+    <input type="text" name="newsletterSubject"><br><br><br>
+    
+    Date: <br><br>
+    <input type="text" name="newsletterDate"><br><br><br>
+    
+    Report: <br><br>
+    <input type="text" name="newsletterReport"><br><br><br>
+   
+   
     <?php 
     
     for ($i = 1; $i <= $featuredArticles; $i++) {
-        resizeFeatured($newsletterNumber, $featuredArticle[$i], $i);
         echo "<input type='hidden' name='featuredArticle" . $i . "' value='" . $featuredArticle[$i] . "' /> \n";
     }
 
     for ($i = 1; $i <= $latestArticles; $i++) {
-        resizeLatest($newsletterNumber, $latestArticle[$i], $i);
         echo "<input type='hidden' name='latestArticle" . $i . "' value='" . $latestArticle[$i] . "' /> \n";
     }
     
     ?>
-        <input type="submit" value="Next">
 
-    
+    <input type="submit" value="Next">
+        
     </form>
     
 </body>
