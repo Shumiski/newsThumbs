@@ -250,3 +250,124 @@ Set @Aprimo_ID = '510182405'
     </tr>
     <!-- END SPACER -->
 
+
+<!-- BANNER - IMAGE -->
+     <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  <a href="<?php echo $newsletterReport; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_report.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReport, "headline"); ?>" /></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- BANNER IMAGE -->
+    <!-- START SPACER -->
+    <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td height="15" width="100%" style="font-size:15px;line-height:15px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END SPACER -->
+
+
+
+<?php
+for ($i = 2; $i <= $featuredArticles; $i++) {
+?>
+
+<!-- ARTICLE - IMAGE -->
+    <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  <a href="<?php echo $featuredArticle[$i]; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_" . $i . ".jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($featuredArticle[$i], "headline"); ?>
+" /></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END IMAGE -->
+    
+    <!-- ARTICLE - TEXT -->
+    <tr>
+      <td class="one-column-article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <!--[if (gte mso 9)|(IE)]>
+            <table width="600" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
+            <tr>
+            <td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+            <![endif]-->
+             <table class="outer" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family: Arial, sans-serif;Margin:0 auto;width:100%;max-width:600px;background: #ffffff;" >
+              <tr>
+                <td class="one-column-article" style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:0px;" >
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
+                    <tr>
+                      <td class="contents" style="width:100%;padding-top:0px;padding-bottom:15px;padding-right:10px;padding-left:17px;text-align:left;" >
+                        <a href="<?php echo $featuredArticle[$i]; ?>" style="text-decoration:none;">
+                        <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php echo theData($featuredArticle[$i], "category"); ?></span>
+                        <h2 style="font-family: Arial, sans-serif;font-size: 22px;line-height: 1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 10px;margin-top: 10px;"><?php echo theData($featuredArticle[$i], "headline"); ?></h2>
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END ARTICLE -->
+    
+    <!-- START SPACER -->
+    <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td height="15" width="100%" style="font-size:15px;line-height:15px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END SPACER -->
+
+<?php
+    }
+?>
+
