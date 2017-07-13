@@ -38,8 +38,11 @@ $latestArticles = $_POST["latestArticles"];
     Newsletter Number: <br><br>
     <input type="text" name="newsletterNumber"><br><br><br>
     
-    Newsletter Report: <br><br>
+    Newsletter Report Top: <br><br>
     <input type="text" name="newsletterReport"><br><br><br>
+    
+    Newsletter Report Bottom: <br><br>
+    <input type="text" name="newsletterReportBottom"><br><br><br>
   
     <?php
     

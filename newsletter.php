@@ -6,6 +6,7 @@ $newsletterNumber = $_POST["newsletterNumber"];
 $newsletterSubject = $_POST["newsletterSubject"];
 $newsletterDate = $_POST["newsletterDate"];
 $newsletterReport = $_POST["newsletterReport"];
+$newsletterReportBottom = $_POST["newsletterReportBottom"];
 $imagesPathChoice = $_POST["imagesPath"];
 
 
@@ -374,6 +375,40 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
     }
 ?>
 
+<!-- BANNER - IMAGE -->
+     <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  <a href="<?php echo $newsletterReportBottom; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportBottom.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReportBottom, "headline"); ?>" /></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- BANNER IMAGE -->
+    <!-- START SPACER -->
+    <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td height="15" width="100%" style="font-size:15px;line-height:15px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END SPACER -->
 
 <!-- START ONE COLUMN ARTICLE -->
     <tr>
