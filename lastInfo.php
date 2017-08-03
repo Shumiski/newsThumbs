@@ -54,6 +54,9 @@ for ($i = 1; $i <= $latestArticles; $i++) {
     
     Date: <br><br>
     <input type="text" name="newsletterDate"><br><br><br>
+    
+    Aprimo: <br><br>
+    <input type="text" name="aprimo"><br><br><br>
    
     Images path: <br><br>
     <select name="imagesPath">

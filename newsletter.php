@@ -8,6 +8,7 @@ $newsletterDate = $_POST["newsletterDate"];
 $newsletterReport = $_POST["newsletterReport"];
 $newsletterReportBottom = $_POST["newsletterReportBottom"];
 $imagesPathChoice = $_POST["imagesPath"];
+$aprimo = $_POST["aprimo"];
 
 
 if ($imagesPathChoice == "et"){
@@ -63,7 +64,7 @@ Set @Program_Name = 'Enterprise NXT'
 %%[var @Campaign, @Cell_Name, @Aprimo_ID
 Set @Campaign = emailname_                 
 Set @Cell_Name = _DataSourceName                  
-Set @Aprimo_ID = '510320723'
+Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
 ]%%
 
 <custom name="opencounter" type="tracking">
@@ -375,6 +376,7 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
     }
 ?>
 
+<?php if ($newsletterReportBottom != "no"){ ?>
 <!-- BANNER - IMAGE -->
      <tr>
       <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
@@ -409,6 +411,7 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
       </td>
     </tr>
     <!-- END SPACER -->
+<?php } ?>
 
 <!-- START ONE COLUMN ARTICLE -->
     <tr>
