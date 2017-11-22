@@ -4,6 +4,7 @@ $featuredArticles = $_POST["featuredArticles"];
 $latestArticles = $_POST["latestArticles"];
 $newsletterNumber = $_POST["newsletterNumber"];
 $newsletterReport = $_POST["newsletterReport"];
+$newsletterReportMiddle = $_POST["newsletterReportMiddle"];
 $newsletterReportBottom = $_POST["newsletterReportBottom"];
 
 // Dependendo do número de articles, pega variáveis
@@ -47,6 +48,7 @@ for ($i = 1; $i <= $latestArticles; $i++) {
     <input type="hidden" name="latestArticles" value="<?php echo $latestArticles;?>" />
     <input type="hidden" name="newsletterNumber" value="<?php echo $newsletterNumber;?>" />
     <input type="hidden" name="newsletterReport" value="<?php echo $newsletterReport;?>" />
+    <input type="hidden" name="newsletterReportMiddle" value="<?php echo $newsletterReportMiddle;?>" />
     <input type="hidden" name="newsletterReportBottom" value="<?php echo $newsletterReportBottom;?>" />
    
     Subject line: <br><br>

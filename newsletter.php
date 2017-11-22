@@ -6,6 +6,7 @@ $newsletterNumber = $_POST["newsletterNumber"];
 $newsletterSubject = $_POST["newsletterSubject"];
 $newsletterDate = $_POST["newsletterDate"];
 $newsletterReport = $_POST["newsletterReport"];
+$newsletterReportMiddle = $_POST["newsletterReportMiddle"];
 $newsletterReportBottom = $_POST["newsletterReportBottom"];
 $imagesPathChoice = $_POST["imagesPath"];
 $aprimo = $_POST["aprimo"];
@@ -46,15 +47,7 @@ $info = array("headline"=>$headline->text, "category"=>$category->text);
 return $info[$call]; 
 }
 
-
-
-
 ?>
-
-
-
-
-
 
 %%[var @Program_Name, @encrypted_email, @Subject_Line                
 SET @encrypted_email = EncryptSymmetric([Email Address], "AES", "Encrypt_P", @null, "Encrypt_Salt", @null, "Encrypt_IV", @null)
@@ -385,7 +378,7 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $newsletterReportBottom . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportBottom.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReportBottom, "headline"); ?>" /></a>
+                  <a href="<?php echo $newsletterReportMiddle . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportMiddle.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReportMiddle, "headline"); ?>" /></a>
                 </td>
               </tr>
             </table>
@@ -530,7 +523,7 @@ for ($i = 1; $i <= $latestArticles; $i++) {
           <div class="webkit" style="max-width:600px;" >
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
-                <td height="40" width="100%" style="font-size:40px;line-height:40px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                <td height="15" width="100%" style="font-size:15px;line-height:15px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
                   &nbsp;
                 </td>
               </tr>
@@ -540,6 +533,40 @@ for ($i = 1; $i <= $latestArticles; $i++) {
       </td>
     </tr>
     <!-- END SPACER -->
+    <!-- BANNER - IMAGE -->
+     <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  <a href="<?php echo $newsletterReportBottom . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportBottom.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReportBottom, "headline"); ?>" /></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- BANNER IMAGE -->
+    <!-- START SPACER -->
+    <tr>
+      <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
+        <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+          <div class="webkit" style="max-width:600px;" >
+            <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
+              <tr>
+                <td height="40" width="100%" style="font-size:40px;line-height:40px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </td>
+    </tr>
+    <!-- END SPACER -->    
     <!-- START LOGO -->
     <tr>
       <td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#EBEAEA;" >
