@@ -136,7 +136,7 @@ Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="https://insights.hpe.com/?jumpid=em_fn8ktqmji1_AID-510204404" style="display: block;width: 100%;max-width: 395px;"><img src="http://image.emailinfo.mail.hpe.com/lib/fe8f15747462017a7d/m/1/logoHead.png" alt="Enterprise.nxt - Weekly Digest" style="display: block;width: 100%;max-width: 395px;"></a>
+                  <a href="https://www.hpe.com/us/en/insights.html?jumpid=em_fn8ktqmji1_AID-510204404&dimid=EMID_%%_subscriberkey%%" style="display: block;width: 100%;max-width: 395px;"><img src="http://image.emailinfo.mail.hpe.com/lib/fe8f15747462017a7d/m/1/logoHead.png" alt="Enterprise.nxt - Weekly Digest" style="display: block;width: 100%;max-width: 395px;"></a>
                 </td>
               </tr>
             </table>
@@ -190,7 +190,7 @@ Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $featuredArticle[1]; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_1.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($featuredArticle[1], "headline"); ?>
+                  <a href="<?php echo $featuredArticle[1] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_1.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($featuredArticle[1], "headline"); ?>
 " /></a>
                 </td>
               </tr>
@@ -216,7 +216,7 @@ Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
                   <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
                     <tr>
                       <td class="contents" style="width:100%;padding-top:0px;padding-bottom:15px;padding-right:10px;padding-left:17px;text-align:left;" >
-                        <a href="<?php echo $featuredArticle[1]; ?>" style="text-decoration:none;">
+                        <a href="<?php echo $featuredArticle[1] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="text-decoration:none;">
                         <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php echo theData($featuredArticle[1], "category"); ?></span>
                         <h2 style="font-family: Arial, sans-serif;font-size: 22px;line-height: 1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 10px;margin-top: 10px;"><?php echo theData($featuredArticle[1], "headline"); ?></h2>
                         </a>
@@ -264,7 +264,7 @@ Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $newsletterReport; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_report.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReport, "headline"); ?>" /></a>
+                  <a href="<?php echo $newsletterReport . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_report.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReport, "headline"); ?>" /></a>
                 </td>
               </tr>
             </table>
@@ -305,7 +305,7 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $featuredArticle[$i]; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_" . $i . ".jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($featuredArticle[$i], "headline"); ?>
+                  <a href="<?php echo $featuredArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_" . $i . ".jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($featuredArticle[$i], "headline"); ?>
 " /></a>
                 </td>
               </tr>
@@ -332,7 +332,7 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
                   <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
                     <tr>
                       <td class="contents" style="width:100%;padding-top:0px;padding-bottom:15px;padding-right:10px;padding-left:17px;text-align:left;" >
-                        <a href="<?php echo $featuredArticle[$i]; ?>" style="text-decoration:none;">
+                        <a href="<?php echo $featuredArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="text-decoration:none;">
                         <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php echo theData($featuredArticle[$i], "category"); ?></span>
                         <h2 style="font-family: Arial, sans-serif;font-size: 22px;line-height: 1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 10px;margin-top: 10px;"><?php echo theData($featuredArticle[$i], "headline"); ?></h2>
                         </a>
@@ -385,7 +385,7 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $newsletterReportBottom; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportBottom.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReportBottom, "headline"); ?>" /></a>
+                  <a href="<?php echo $newsletterReportBottom . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportBottom.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo theData($newsletterReportBottom, "headline"); ?>" /></a>
                 </td>
               </tr>
             </table>
@@ -484,10 +484,10 @@ for ($i = 1; $i <= $latestArticles; $i++) {
                                 <table class="contents" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family: Arial, sans-serif;width:100%;font-size:14px;text-align:left;" >
                                   <tr>
                                     <td width="110" class="padding-right-20" valign="top" style="padding-top:0px;padding-bottom:<?php if ($i < $latestArticles){ ?>15px<?php } else { ?>40px<?php } ?>;padding-right:20px;padding-left:0px;<?php if ($i < $latestArticles){ ?>border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CDD0D1;<?php } ?>" >
-                                      <a href="<?php echo $latestArticle[$i]; ?>" style="border-width:0;width:100%;height:auto;max-width:260px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_latest_" . $i . ".jpg";?>" width="110" alt="<?php echo theData($latestArticle[$i], "headline"); ?>" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
+                                      <a href="<?php echo $latestArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="border-width:0;width:100%;height:auto;max-width:260px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_latest_" . $i . ".jpg";?>" width="110" alt="<?php echo theData($latestArticle[$i], "headline"); ?>" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
                                     </td>
                                     <td valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;<?php if ($i < $latestArticles){ ?>border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CDD0D1;<?php } ?>" >
-                                      <a href="<?php echo $latestArticle[$i]; ?>" style="text-decoration: none;">
+                                      <a href="<?php echo $latestArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="text-decoration: none;">
                                         <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php echo theData($latestArticle[$i], "category"); ?></span>
                                         <h2 style="font-family: Arial, sans-serif;font-size: 18px;line-height: 1.1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 6px;margin-top: 6px;"><?php echo theData($latestArticle[$i], "headline"); ?></h2>
                                       </a>
@@ -548,7 +548,7 @@ for ($i = 1; $i <= $latestArticles; $i++) {
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:30px;padding-right:0;padding-left:0;" >
-                  <a href="https://insights.hpe.com/?jumpid=em_fn8ktqmji1_AID-510204404" style="display: block;width: 100%;max-width: 217px;text-align: center;margin: auto;"><img src="http://image.emailinfo.mail.hpe.com/lib/fe8f15747462017a7d/m/1/logoHPE.png" alt="Brought to you by HPE" style="display: block;width: 100%;max-width: 217px;"></a>
+                  <a href="https://www.hpe.com/us/en/insights.html?jumpid=em_fn8ktqmji1_AID-510204404&dimid=EMID_%%_subscriberkey%%" style="display: block;width: 100%;max-width: 217px;text-align: center;margin: auto;"><img src="http://image.emailinfo.mail.hpe.com/lib/fe8f15747462017a7d/m/1/logoHPE.png" alt="Brought to you by HPE" style="display: block;width: 100%;max-width: 217px;"></a>
                 </td>
               </tr>
             </table>

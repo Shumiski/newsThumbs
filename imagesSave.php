@@ -28,7 +28,7 @@ $dom->load($url);
 
 $img = $dom->find('.marquee-img');
 $getImgUrl = $img->getAttribute('src');
-$imgUrl = "https://insights.hpe.com/" . $getImgUrl;
+$imgUrl = "https://www.hpe.com/" . $getImgUrl;
     
     return $imgUrl;
 }
