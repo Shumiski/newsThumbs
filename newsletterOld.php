@@ -18,52 +18,37 @@ $imagesPath = "http://image.emailinfo.mail.hpe.com/lib/fe8f15747462017a7d/m/2/";
 $imagesPath = "images/saved/";
 }
 
-require "vendor/autoload.php";
-use PHPHtmlParser\Dom;
-
-function featWrite($i, $headline, $info){
-    $fH[$i] = $headline;
-}
 
 // Dependendo do número de articles, pega variáveis
 for ($i = 1; $i <= $featuredArticles; $i++) {
        $featuredArticle[$i] = $_POST["featuredArticle" . $i];
-        $featDom[$i] = new Dom;
-        $featDom[$i]->load($featuredArticle[$i]);
-        $featuredH[$i] = $featDom[$i]->find('h1')[0];
-        $featuredC[$i] = $featDom[$i]->find('.tag-list a')[0];
-        $featuredHeadline[$i] = $featuredH[$i]->text;
-        $featuredCategory[$i] = $featuredC[$i]->text;
 }
 
 for ($i = 1; $i <= $latestArticles; $i++) {
        $latestArticle[$i] = $_POST["latestArticle" . $i];
-        $latDom[$i] = new Dom;
-        $latDom[$i]->load($latestArticle[$i]);
-        $latestH[$i] = $latDom[$i]->find('h1')[0];
-        $latestC[$i] = $latDom[$i]->find('.tag-list a')[0];
-        $latestHeadline[$i] = $latestH[$i]->text;
-        $latestCategory[$i] = $latestC[$i]->text;
 }
 
 
-// Report top DOM
-        $report1Dom = new Dom;
-        $report1Dom->load($newsletterReport);
-        $report1H = $report1Dom->find('h1')[0];
-        $report1Headline = $report1H->text;
+//Dados
 
-// Report middle DOM
-        $report2Dom = new Dom;
-        $report2Dom->load($newsletterReport);
-        $report2H = $report2Dom->find('h1')[0];
-        $report2Headline = $report2H->text;
+require "vendor/autoload.php";
+use PHPHtmlParser\Dom;
 
-// Report bottom DOM
-        $report3Dom = new Dom;
-        $report3Dom->load($newsletterReport);
-        $report3H = $report3Dom->find('h1')[0];
-        $report3Headline = $report3H->text;
+
+function theData($url, $call){
+    
+$dom = new Dom;
+$dom->load($url);
+    
+    
+$headline = $dom->find('h1')[0];
+$category = $dom->find('.tag-list a')[0];
+
+$info = array("headline"=>$headline->text, "category"=>$category->text);
+   
+echo $info[$call];
+}
+
 ?>
 
 %%[var @Program_Name, @encrypted_email, @Subject_Line                
@@ -103,7 +88,7 @@ Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
                   <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, Arial;" >
                     <tr>
                       <td class="contents" style="width:100%;padding-top:0px;padding-bottom:0;padding-right:10px;padding-left:17px;text-align:left;" >
-                        <p style="width: 100%;max-width:600px;color: #EBEAEA;font-size:7px;line-height:1.3;text-align: left;">Featuring: <?php echo $featuredHeadline[3] . " - " . $featuredHeadline[4]; ?></p>
+                        <p style="width: 100%;max-width:600px;color: #EBEAEA;font-size:7px;line-height:1.3;text-align: left;">Featuring: <?php theData($featuredArticle[3], "headline") . " - " . theData($featuredArticle[4], "headline"); ?></p>
                       </td>
                     </tr>
                   </table>
@@ -200,7 +185,7 @@ Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $featuredArticle[1] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_1.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo $featuredHeadline[1]; ?>
+                  <a href="<?php echo $featuredArticle[1] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_1.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php theData($featuredArticle[1], "headline"); ?>
 " /></a>
                 </td>
               </tr>
@@ -227,8 +212,8 @@ Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
                     <tr>
                       <td class="contents" style="width:100%;padding-top:0px;padding-bottom:15px;padding-right:10px;padding-left:17px;text-align:left;" >
                         <a href="<?php echo $featuredArticle[1] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="text-decoration:none;">
-                        <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php echo $featuredCategory[1]; ?></span>
-                        <h2 style="font-family: Arial, sans-serif;font-size: 22px;line-height: 1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 10px;margin-top: 10px;"><?php echo $featuredHeadline[1]; ?></h2>
+                        <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php theData($featuredArticle[1], "category"); ?></span>
+                        <h2 style="font-family: Arial, sans-serif;font-size: 22px;line-height: 1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 10px;margin-top: 10px;"><?php theData($featuredArticle[1], "headline"); ?></h2>
                         </a>
                       </td>
                     </tr>
@@ -274,7 +259,7 @@ Set @Aprimo_ID = <?php echo "'" . $aprimo . "'" . "\n"; ?>
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $newsletterReport . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_report.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo $report1Headline; ?>" /></a>
+                  <a href="<?php echo $newsletterReport . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_report.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php theData($newsletterReport, "headline"); ?>" /></a>
                 </td>
               </tr>
             </table>
@@ -315,7 +300,7 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $featuredArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_" . $i . ".jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo $featuredHeadline[$i]; ?>
+                  <a href="<?php echo $featuredArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_featured_" . $i . ".jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php theData($featuredArticle[$i], "headline"); ?>
 " /></a>
                 </td>
               </tr>
@@ -343,8 +328,8 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
                     <tr>
                       <td class="contents" style="width:100%;padding-top:0px;padding-bottom:15px;padding-right:10px;padding-left:17px;text-align:left;" >
                         <a href="<?php echo $featuredArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="text-decoration:none;">
-                        <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php echo $featuredCategory[$i]; ?></span>
-                        <h2 style="font-family: Arial, sans-serif;font-size: 22px;line-height: 1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 10px;margin-top: 10px;"><?php echo $featuredHeadline[$i]; ?></h2>
+                        <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php theData($featuredArticle[$i], "category"); ?></span>
+                        <h2 style="font-family: Arial, sans-serif;font-size: 22px;line-height: 1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 10px;margin-top: 10px;"><?php theData($featuredArticle[$i], "headline"); ?></h2>
                         </a>
                       </td>
                     </tr>
@@ -395,7 +380,7 @@ for ($i = 2; $i <= $featuredArticles; $i++) {
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $newsletterReportMiddle . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportMiddle.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo $report2Headline; ?>" /></a>
+                  <a href="<?php echo $newsletterReportMiddle . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportMiddle.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php theData($newsletterReportMiddle, "headline"); ?>" /></a>
                 </td>
               </tr>
             </table>
@@ -494,12 +479,12 @@ for ($i = 1; $i <= $latestArticles; $i++) {
                                 <table class="contents" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family: Arial, sans-serif;width:100%;font-size:14px;text-align:left;" >
                                   <tr>
                                     <td width="110" class="padding-right-20" valign="top" style="padding-top:0px;padding-bottom:<?php if ($i < $latestArticles){ ?>15px<?php } else { ?>40px<?php } ?>;padding-right:20px;padding-left:0px;<?php if ($i < $latestArticles){ ?>border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CDD0D1;<?php } ?>" >
-                                      <a href="<?php echo $latestArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="border-width:0;width:100%;height:auto;max-width:260px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_latest_" . $i . ".jpg";?>" width="110" alt="<?php echo $latestHeadline[$i]; ?>" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
+                                      <a href="<?php echo $latestArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="border-width:0;width:100%;height:auto;max-width:260px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_latest_" . $i . ".jpg";?>" width="110" alt="<?php theData($latestArticle[$i], "headline"); ?>" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
                                     </td>
                                     <td valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;<?php if ($i < $latestArticles){ ?>border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CDD0D1;<?php } ?>" >
                                       <a href="<?php echo $latestArticle[$i] . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="text-decoration: none;">
-                                        <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php echo $latestCategory[$i]; ?></span>
-                                        <h2 style="font-family: Arial, sans-serif;font-size: 18px;line-height: 1.1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 6px;margin-top: 6px;"><?php echo $latestHeadline[$i]; ?></h2>
+                                        <span style="font-family: Arial, sans-serif;font-size: 11px;color: #6B6B6B;display: block;"><?php theData($latestArticle[$i], "category"); ?></span>
+                                        <h2 style="font-family: Arial, sans-serif;font-size: 18px;line-height: 1.1;color: #000000;Margin-bottom: 10px;margin-bottom: 10px;Margin-top: 6px;margin-top: 6px;"><?php theData($latestArticle[$i], "headline"); ?></h2>
                                       </a>
                                     </td>
                                   </tr>
@@ -558,7 +543,7 @@ for ($i = 1; $i <= $latestArticles; $i++) {
             <table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:Arial, sans-serif;" >
               <tr>
                 <td width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                  <a href="<?php echo $newsletterReportBottom . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportBottom.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php echo $report3Headline; ?>" /></a>
+                  <a href="<?php echo $newsletterReportBottom . "&dimid=EMID_%%_subscriberkey%%"; ?>" style="display: block;width: 100%;max-width: 600px;"><img src="<?php echo $imagesPath . $newsletterNumber . "_reportBottom.jpg";?>" style="display: block;width: 100%;max-width: 600px;" alt="<?php theData($newsletterReportBottom, "headline"); ?>" /></a>
                 </td>
               </tr>
             </table>
