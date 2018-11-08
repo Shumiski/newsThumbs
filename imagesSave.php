@@ -28,8 +28,9 @@ $dom = new Dom;
 $dom->load($url);
 
 $img = $dom->find('.marquee-img');
-$getImgUrl = $img->getAttribute('src');
-$imgUrl = "https://www.hpe.com/" . $getImgUrl;
+$getImgUrl = $img->getAttribute('data-src-base');
+$nuUrl = str_replace(".hpetransform/", "", $getImgUrl);
+$imgUrl = "https://www.hpe.com/" . $nuUrl;
     
     return $imgUrl;
 }
