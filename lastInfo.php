@@ -26,20 +26,7 @@ for ($i = 1; $i <= $latestArticles; $i++) {
     <meta charset="UTF-8">
     <title>Test</title>
     
-    <style type="text/css">
-    
-        body{
-            text-align: center;
-            font-family: sans-serif;
-            margin-top: 100px;
-        }
-        
-        input{
-            padding:4px;
-        }
-        
-        
-    </style>
+<link rel="stylesheet" type="text/css" href="style.css">
     
 </head>
 <body>

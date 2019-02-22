@@ -1,5 +1,6 @@
 <?php
 
+
 $featuredArticles = $_POST["featuredArticles"];
 $latestArticles = $_POST["latestArticles"];
 $newsletterNumber = $_POST["newsletterNumber"];
@@ -30,7 +31,7 @@ $dom->load($url);
 $img = $dom->find('.marquee-img');
 $getImgUrl = $img->getAttribute('data-src-base');
 $nuUrl = str_replace(".hpetransform/", "", $getImgUrl);
-$imgUrl = "https://www.hpe.com/" . $nuUrl;
+$imgUrl = "https://www.hpe.com" . $nuUrl;
     
     return $imgUrl;
 }
@@ -57,13 +58,12 @@ $img->insert('images/mask.png');
 
 // finally we save the image as a new file
 $img->save('images/saved/' . $news . '_featured_' . $name . '.jpg');
-    
 }
 
 
 function resizeLatest($news, $url, $name){
-$img = Image::make(theImage($url));
 
+$img = Image::make(theImage($url));
 // now you are able to resize the instance
 $img->resize(null, 73, function ($constraint) {
     $constraint->aspectRatio();
@@ -71,6 +71,8 @@ $img->resize(null, 73, function ($constraint) {
 
 //crop
 $img->crop(100, 73);
+    
+
 
 // finally we save the image as a new file
 $img->save('images/saved/' . $news . '_latest_' . $name . '.jpg');
@@ -85,20 +87,7 @@ $img->save('images/saved/' . $news . '_latest_' . $name . '.jpg');
     <meta charset="UTF-8">
     <title>Test</title>
     
-    <style type="text/css">
-    
-        body{
-            text-align: center;
-            font-family: sans-serif;
-            margin-top: 100px;
-        }
-        
-        input{
-            padding:4px;
-        }
-        
-        
-    </style>
+<link rel="stylesheet" type="text/css" href="style.css">
     
 </head>
 <body>

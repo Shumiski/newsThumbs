@@ -4,20 +4,7 @@
     <meta charset="UTF-8">
     <title>Test</title>
     
-    <style type="text/css">
-    
-        body{
-            text-align: center;
-            font-family: sans-serif;
-            margin-top: 100px;
-        }
-        
-        input{
-            padding:4px;
-        }
-        
-        
-    </style>
+<link rel="stylesheet" type="text/css" href="style.css">
     
 </head>
 <body>
@@ -27,7 +14,7 @@
   <input type="text" name="featuredArticles"><br><br>
   How many <strong>latest</strong> articles: <br><br>
   <input type="text" name="latestArticles"><br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" class="button">
 </form>
     
     
